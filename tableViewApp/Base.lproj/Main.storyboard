@@ -74,6 +74,12 @@
                                         <constraint firstAttribute="trailing" secondItem="ooY-5Y-2iq" secondAttribute="trailing" constant="16" id="wLP-UQ-I96"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageOfPlace" destination="Eif-Vo-LHX" id="7t2-zM-0pW"/>
+                                    <outlet property="locationLabel" destination="VZ5-KW-isG" id="tnn-kz-AWB"/>
+                                    <outlet property="nameLabel" destination="ooY-5Y-2iq" id="zZ1-K2-1kK"/>
+                                    <outlet property="typeLabel" destination="kfS-ox-VFF" id="UWr-Sy-Gs9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
