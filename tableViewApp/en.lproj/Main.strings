@@ -1,0 +1,12 @@
+
+/* Class = "UINavigationItem"; title = "My Places"; ObjectID = "3P9-o4-02N"; */
+"3P9-o4-02N.title" = "My Places";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "VZ5-KW-isG"; */
+"VZ5-KW-isG.text" = "Location";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "kfS-ox-VFF"; */
+"kfS-ox-VFF.text" = "Type";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "ooY-5Y-2iq"; */
+"ooY-5Y-2iq.text" = "Name";
