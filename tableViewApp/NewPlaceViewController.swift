@@ -69,7 +69,6 @@ class NewPlaceViewController: UITableViewController {
     
     func saveNewPlace(){
         
-        
         var image:UIImage?
         if imageIsChange{
             image = placeImage.image
@@ -78,7 +77,10 @@ class NewPlaceViewController: UITableViewController {
         }
         
         let imageData = image?.pngData()
-        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: imageData)
+        let newPlace = Place(name: placeName.text!,
+                             location: placeLocation.text,
+                             type: placeType.text,
+                             imageData: imageData)
 
         Storage.addNewPlace(newPlace)
         
