@@ -9,6 +9,8 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
     
+    var currentPlace: Place?
+    
     @IBOutlet weak var placeImage: UIImageView!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -32,6 +34,7 @@ class NewPlaceViewController: UITableViewController {
         placeName.addTarget(self, action: #selector(textChanged), for: .editingChanged) 
         //убираем разлиновку
         tableView.tableFooterView = UIView()
+        setUpEditScreen()
     }
     
     //MARK: - tableViewDelegate
@@ -67,8 +70,29 @@ class NewPlaceViewController: UITableViewController {
         }
     }
     
-    func saveNewPlace(){
-        
+    private func setUpEditScreen(){
+        if currentPlace != nil{
+            editNavigationBar()
+            guard let data = currentPlace?.imageData, let image = UIImage(data: data) else {return}
+            placeImage.image = image
+            placeImage.contentMode = .scaleAspectFill
+            placeType.text = currentPlace?.type
+            placeName.text = currentPlace?.name
+            placeLocation.text = currentPlace?.location
+            imageIsChange = true 
+        }
+    }
+    
+    private func editNavigationBar(){
+        if let button = navigationController?.navigationBar.topItem{
+            button.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        navigationItem.leftBarButtonItem = nil
+        title = currentPlace?.name
+        saveButton.isEnabled = true
+    }
+    func savePlace(){
+         
         var image:UIImage?
         if imageIsChange{
             image = placeImage.image
@@ -82,13 +106,21 @@ class NewPlaceViewController: UITableViewController {
                              type: placeType.text,
                              imageData: imageData)
 
-        Storage.addNewPlace(newPlace)
+        if currentPlace != nil{
+            try! realm.write{
+                currentPlace?.name = newPlace.name
+                currentPlace?.type = newPlace.type
+                currentPlace?.location = newPlace.location
+                currentPlace?.imageData = newPlace.imageData
+            }
+            
+        }else{
+            Storage.addNewPlace(newPlace)
+        }
+       
+            
+       
         
-//         newPlace = Place(name: placeName.text!,
-//                          location: placeLocation.text,
-//                          type: placeType.text,
-//                          image: image ,
-//                          restaurantImage: nil)
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
