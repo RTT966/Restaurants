@@ -49,6 +49,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E1EBBA229B6381900AF1A1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E8D08382995521900C5C497 /* PlaceModel.swift */,
+				8E2A687A2996907D001E062D /* storageManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E1EBBA329B6382900AF1A1F /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				8E2A6873299635B7001E062D /* NewPlaceViewController.swift */,
+				8EA9C3652993AE080064C08F /* MainViewController.swift */,
+				8EA9C3692995459A0064C08F /* CustomTableViewCell.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		8E1EBBA429B6383D00AF1A1F /* Sups */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9C35F2993AB750064C08F /* Info.plist */,
+				8EA9C35A2993AB750064C08F /* Assets.xcassets */,
+				8EA9C3512993AB740064C08F /* AppDelegate.swift */,
+				8EA9C3532993AB740064C08F /* SceneDelegate.swift */,
+			);
+			path = Sups;
+			sourceTree = "<group>";
+		};
 		8EA9C3452993AB740064C08F = {
 			isa = PBXGroup;
 			children = (
@@ -68,19 +98,21 @@
 		8EA9C3502993AB740064C08F /* tableViewApp */ = {
 			isa = PBXGroup;
 			children = (
-				8EA9C3512993AB740064C08F /* AppDelegate.swift */,
-				8E2A6873299635B7001E062D /* NewPlaceViewController.swift */,
-				8E8D08382995521900C5C497 /* PlaceModel.swift */,
-				8E2A687A2996907D001E062D /* storageManager.swift */,
-				8EA9C3692995459A0064C08F /* CustomTableViewCell.swift */,
-				8EA9C3652993AE080064C08F /* MainViewController.swift */,
-				8EA9C3532993AB740064C08F /* SceneDelegate.swift */,
-				8EA9C3572993AB740064C08F /* Main.storyboard */,
-				8EA9C35A2993AB750064C08F /* Assets.xcassets */,
-				8EA9C35C2993AB750064C08F /* LaunchScreen.storyboard */,
-				8EA9C35F2993AB750064C08F /* Info.plist */,
+				8ECCC46929B64FDA000BC846 /* SB */,
+				8E1EBBA329B6382900AF1A1F /* VC */,
+				8E1EBBA229B6381900AF1A1F /* Model */,
+				8E1EBBA429B6383D00AF1A1F /* Sups */,
 			);
 			path = tableViewApp;
+			sourceTree = "<group>";
+		};
+		8ECCC46929B64FDA000BC846 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9C3572993AB740064C08F /* Main.storyboard */,
+				8EA9C35C2993AB750064C08F /* LaunchScreen.storyboard */,
+			);
+			path = SB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = tableViewApp/Info.plist;
+				INFOPLIST_FILE = tableViewApp/Sups/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -345,7 +377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = tableViewApp/Info.plist;
+				INFOPLIST_FILE = tableViewApp/Sups/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

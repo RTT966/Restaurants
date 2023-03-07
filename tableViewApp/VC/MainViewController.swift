@@ -17,7 +17,7 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         places = realm.objects(Place.self)
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
 
     }
 
