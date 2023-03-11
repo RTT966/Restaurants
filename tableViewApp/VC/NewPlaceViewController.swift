@@ -12,19 +12,11 @@ class NewPlaceViewController: UITableViewController {
     var currentPlace: Place?
     
     @IBOutlet weak var placeImage: UIImageView!
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    
     @IBOutlet weak var placeName: UITextField!
-    
-    
     @IBOutlet weak var placeLocation: UITextField!
-    
-    
     @IBOutlet weak var placeType: UITextField!
     
-   
     var imageIsChange = false
     
     override func viewDidLoad() {
@@ -75,7 +67,7 @@ class NewPlaceViewController: UITableViewController {
             editNavigationBar()
             guard let data = currentPlace?.imageData, let image = UIImage(data: data) else {return}
             placeImage.image = image
-            placeImage.contentMode = .scaleAspectFill
+            placeImage.contentMode = .scaleAspectFit
             placeType.text = currentPlace?.type
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
