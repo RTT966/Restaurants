@@ -263,7 +263,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q2H-3r-qnG" customClass="RatingControl" customModule="tableViewApp" customModuleProvider="target">
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q2H-3r-qnG" customClass="RatingControl" customModule="tableViewApp" customModuleProvider="target">
                                                     <rect key="frame" x="81" y="48" width="252" height="44"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="starCount">
@@ -303,6 +303,7 @@
                         <outlet property="placeLocation" destination="u52-fH-BjL" id="Yzi-kh-Hk4"/>
                         <outlet property="placeName" destination="A4I-tT-Koe" id="aJj-o2-ZRl"/>
                         <outlet property="placeType" destination="cbW-b8-MkI" id="TXp-wB-UoD"/>
+                        <outlet property="ratingControl" destination="Q2H-3r-qnG" id="zyk-sz-HOa"/>
                         <outlet property="saveButton" destination="l9T-aR-k6Q" id="JV9-fg-BWY"/>
                     </connections>
                 </tableViewController>

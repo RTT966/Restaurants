@@ -14,10 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let config = Realm.Configuration( schemaVersion: 1,
+        let schemeVersion: UInt64 = 2
+        
+        let config = Realm.Configuration( schemaVersion: schemeVersion,
                                           migrationBlock:
                                           { migration, oldSchemaVersion in
-            if (oldSchemaVersion < 1) {}
+            if (oldSchemaVersion < schemeVersion) {}
         })
         Realm.Configuration.defaultConfiguration = config
         

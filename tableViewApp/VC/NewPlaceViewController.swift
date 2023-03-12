@@ -9,15 +9,18 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
     
-    var currentPlace: Place?
+    var currentPlace: Place!
+    var imageIsChange = false
     
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var placeName: UITextField!
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeType: UITextField!
+    @IBOutlet weak var ratingControl: RatingControl!
     
-    var imageIsChange = false
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,7 @@ class NewPlaceViewController: UITableViewController {
         //проверка на пустоту текстфилда с именем
         placeName.addTarget(self, action: #selector(textChanged), for: .editingChanged) 
         //убираем разлиновку
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
         setUpEditScreen()
     }
     
@@ -71,7 +74,8 @@ class NewPlaceViewController: UITableViewController {
             placeType.text = currentPlace?.type
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
-            imageIsChange = true 
+            imageIsChange = true
+            ratingControl.rating = Int(currentPlace.rating)
         }
     }
     
@@ -96,7 +100,8 @@ class NewPlaceViewController: UITableViewController {
         let newPlace = Place(name: placeName.text!,
                              location: placeLocation.text,
                              type: placeType.text,
-                             imageData: imageData)
+                             imageData: imageData,
+                             rating: Double(ratingControl.rating))
 
         if currentPlace != nil{
             try! realm.write{
@@ -104,6 +109,7 @@ class NewPlaceViewController: UITableViewController {
                 currentPlace?.type = newPlace.type
                 currentPlace?.location = newPlace.location
                 currentPlace?.imageData = newPlace.imageData
+                currentPlace?.rating = newPlace.rating
             }
             
         }else{
