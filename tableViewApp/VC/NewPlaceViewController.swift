@@ -11,6 +11,7 @@ class NewPlaceViewController: UITableViewController {
     
     var currentPlace: Place!
     var imageIsChange = false
+    var mapPct = true
     
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -18,7 +19,7 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeType: UITextField!
     @IBOutlet weak var ratingControl: RatingControl!
-    
+    @IBOutlet weak var mapIcon: UIButton!
     
 
     
@@ -30,6 +31,7 @@ class NewPlaceViewController: UITableViewController {
         //убираем разлиновку
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
         setUpEditScreen()
+        mapIcon.isHidden = mapPct
     }
     
     //MARK: - tableViewDelegate
@@ -89,13 +91,8 @@ class NewPlaceViewController: UITableViewController {
     }
     func savePlace(){
          
-        var image:UIImage?
-        if imageIsChange{
-            image = placeImage.image
-        }else{
-            image = UIImage(imageLiteralResourceName: "food")
-        }
-        
+        let image = imageIsChange ? placeImage.image : UIImage(imageLiteralResourceName: "food")
+         
         let imageData = image?.pngData()
         let newPlace = Place(name: placeName.text!,
                              location: placeLocation.text,
@@ -115,11 +112,17 @@ class NewPlaceViewController: UITableViewController {
         }else{
             Storage.addNewPlace(newPlace)
         }
-       
-            
-       
-        
     }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showMap" else {return}
+        
+        let mapVC = segue.destination as! MapVCViewController
+        mapVC.place = currentPlace
+    }
+    
+    
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true )
